@@ -1,0 +1,34 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Node
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+/.nyc_output
+
+# production
+/build
+/dist
+/public/build
+
+# misc
+.DS_Store
+.env.local
+.env*.local
+.vscode
+*.tgz
+.npmrc
+.yarnrc
+.yarn/
+.idea/
