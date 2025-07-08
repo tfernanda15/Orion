@@ -1,0 +1,95 @@
+.notifications-container {
+    position: relative;
+    display: inline-block;
+    margin-left: 1rem; /* Espacio para el icono en el header */
+  }
+  
+  .notifications-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem; /* Tamaño del icono de campana */
+    cursor: pointer;
+    color: #f0f2f5; /* Color del icono */
+    position: relative;
+    padding: 0; /* Quitar padding por defecto del botón */
+    line-height: 1; /* Ajustar altura de línea */
+    display: flex; /* Para centrar el contenido */
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+  }
+  
+  .notifications-button:hover {
+      transform: scale(1.1);
+  }
+  
+  .notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: #ff6347; /* Rojo para el badge */
+    color: white;
+    border-radius: 50%;
+    padding: 3px 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    line-height: 1;
+    min-width: 15px; /* Asegura un tamaño mínimo */
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  }
+  
+  .notifications-dropdown {
+    position: absolute;
+    top: 100%; /* Debajo del botón */
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    z-index: 1000; /* Asegura que esté por encima de otros elementos */
+    padding: 1rem;
+    margin-top: 10px; /* Espacio entre el botón y el dropdown */
+  }
+  
+  .notifications-dropdown h4 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #282c34;
+    font-size: 1.2rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .notifications-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .notifications-dropdown li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    color: #333;
+    font-size: 0.95rem;
+  }
+  
+  .notifications-dropdown li.unread {
+      font-weight: bold;
+      color: #282c34; /* Texto más oscuro para no leídas */
+      background-color: #e0f7fa; /* Fondo suave para no leídas */
+  }
+  
+  .notifications-dropdown li:last-child {
+    border-bottom: none;
+  }
+  
+  .no-notifications {
+      padding: 1rem 0;
+      color: #777;
+      text-align: center;
+      font-style: italic;
+  }

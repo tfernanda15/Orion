@@ -1,0 +1,358 @@
+/* src/components/Header/Header.css */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+
+.header-orion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--color-card-dark); /* Fondo oscuro de la paleta neón */
+    color: var(--color-text-light); /* Texto claro */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5); /* Sombra más profunda */
+    border-bottom: 1px solid var(--color-border-dark); /* Borde sutil */
+    flex-wrap: wrap; /* Para responsividad */
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    text-decoration: none; /* Elimina el subrayado por defecto */
+}
+
+.logo-text { /* Estilo para el h1 dentro del logo */
+    font-family: 'Cinzel Decorative', serif; /* Aplica la fuente Cinzel Decorative */
+    font-weight: 700; /* Peso de la fuente */
+    font-size: 2.5rem; /* Tamaño grande para el logo, un poco más que antes */
+    color: var(--color-text-light); /* Color del logo en rojo neón */
+    letter-spacing: 2.5px; /* Espaciado entre letras para ese toque futurista */
+    margin: 0; /* Elimina el margen por defecto del h1 */
+    /* Efecto "neón" para el logo */
+    text-shadow: 0 0 10px var(--color-accent-red),
+                 0 0 15px var(--color-accent-red),
+                 0 0 30px rgba(229, 57, 53, 0.6); /* Más brillo */
+    transition: text-shadow 0.3s ease;
+}
+
+.logo-text:hover {
+    text-shadow: 0 0 15px var(--color-accent-gold),
+                 0 0 10px var(--color-accent-purple),
+                 0 0 30px var(--color-accent-gold); /* Morado y más brillo al pasar el mouse */
+}
+
+.header-nav {
+    margin-right: auto; /* Empuja los elementos a la izquierda de la navegación */
+    margin-left: 2rem; /* Espacio después del logo */
+}
+
+.header-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem; /* Aumenta el espacio entre enlaces de navegación */
+}
+
+.header-nav a {
+    color: var(--color-text-light); /* Enlaces de navegación en blanco */
+    text-decoration: none;
+    font-weight: 600; /* Más audaz */
+    transition: color 0.3s ease;
+    position: relative; /* Para el efecto de subrayado animado */
+    padding-bottom: 5px; /* Espacio para el subrayado */
+}
+
+.header-nav a:hover,
+.header-nav a.active { /* Para cuando la página está activa */
+    color: var(--color-accent-red); /* Azul brillante al pasar el mouse */
+}
+
+/* Efecto de subrayado "neón" para los enlaces de navegación */
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px; /* Grosor del subrayado */
+  background: var(--color-accent-red); /* Subrayado azul neón */
+  left: 50%;
+  bottom: 0; /* Posición del subrayado en la base del enlace */
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 5px var(--color-accent-red), 0 0 10px rgba(3, 169, 244, 0.5); /* Brillo neón */
+}
+
+.header-nav a:hover::after,
+.header-nav a.active::after {
+  width: 100%;
+}
+
+
+.header-search {
+    flex-grow: 1;
+    max-width: 400px;
+    margin: 0 2rem;
+    margin-right: 1rem;
+    margin-top: -.5rem;
+}
+
+.header-search form {
+    display: flex;
+    width: 100%;
+    height: 3rem;
+    /* Quitamos el borde y el redondeo del form aquí */
+    /* border: 2px solid var(--color-accent-purple); */
+    /* border-radius: 25px; */
+    overflow: visible; /* IMPORTANTE: CAMBIAR A VISIBLE */
+    box-shadow: none; /* Quitamos la sombra del form */
+    /* transition: border-color 0.3s ease, box-shadow 0.3s ease; */
+}
+
+
+
+.search-input {
+    flex-grow: 1;
+    padding: 0.8rem 1.5rem;
+    border: 2px solid var(--color-accent-red); /* El borde ahora va en el input */
+    border-right: none; /* Eliminamos el borde derecho para que se fusione con el botón */
+    border-radius: 25px 0 0 25px; /* Bordes redondeados solo a la izquierda */
+    font-size: 1rem;
+    outline: none; /* Sigue siendo importante para eliminar el contorno por defecto */
+    background-color: var(--color-accent-red);
+    color: var(--color-text-light);
+    box-shadow: 0 0 8px var(--color-accent-red); /* Sombra inicial en el input */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input::placeholder {
+    color: var(--color-text-muted); /* Placeholder más sutil */
+}
+
+.search-input:focus {
+    border-color: var(--color-accent-red); /* Borde azul al enfocar */
+    box-shadow: 0 0 12px var(--color-accent-red); /* Sombra azul al enfocar */
+}
+
+.search-button {
+    background-color: var(--color-accent-red);
+    color: var(--color-text-light);
+    /* El borde izquierdo del botón debe coincidir con el color del borde del input al fusionarse */
+    border: 2px solid var(--color-accent-red); /* Borde del mismo color que el fondo del botón para ocultar la unión */
+    border-left: none; /* Quitamos el borde izquierdo para que se fusione visualmente */
+    border-radius: 0 5px 5px 0; /* Bordes redondeados solo a la derecha */
+    padding: 0.8rem 1.2rem;
+    height: 40px;
+    margin-top: .5rem;
+    margin-left: -1rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; /* Añadimos border-color */
+    white-space: nowrap;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 10px var(--color-accent-red);
+}
+
+.search-button:hover {
+    background-color: var(--color-accent-gold);
+    box-shadow: 0 0 15px var(--color-accent-gold);
+    border-color: var(--color-accent-gold); /* El borde también cambia al color morado en hover */
+}
+
+.header-user-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Espacio entre los botones de acción */
+}
+
+.header-user-actions button {
+    background-color: var(--color-accent-red); /* Rojo neón para botones de acción */
+    color: var(--color-text-light);
+    border: none;
+    padding: 0.7rem 1.4rem; /* Ligeramente más grandes */
+    border-radius: 20px; /* Más redondeados */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+    font-size: 0.95rem; /* Tamaño de fuente ligeramente ajustado */
+    box-shadow: 0 0 8px rgba(229, 57, 53, 0.4); /* Sombra de brillo rojo */
+}
+
+.header-user-actions button:hover {
+    background-color: var(--color-accent-gold); /* Rojo más oscuro al pasar el mouse */
+    transform: translateY(-1px); /* Efecto sutil de levantamiento */
+    box-shadow: 0 0 12px rgba(229, 57, 53, 0.6); /* Más brillo al pasar el mouse */
+}
+
+/* Estilo específico para el botón de Login/Registro cuando es un Link */
+.header-user-actions .login-register-button {
+    background-color: var(--color-accent-purple); /* Morado neón */
+    color: var(--color-text-light);
+    text-decoration: none; /* Asegúrate de que no tenga subrayado */
+    display: inline-block; /* Necesario para que padding y margin funcionen en Link */
+    text-align: center;
+    padding: 0.7rem 1.4rem; /* Mismo padding que otros botones */
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 0 8px rgba(142, 36, 170, 0.4); /* Sombra de brillo morado */
+}
+
+.header-user-actions .login-register-button:hover {
+    background-color: var(--color-accent-blue); /* Azul neón al pasar el mouse */
+    box-shadow: 0 0 12px rgba(3, 169, 244, 0.6); /* Sombra de brillo azul */
+    transform: translateY(-1px);
+}
+
+/* Estilo específico para el botón de cerrar sesión */
+.logout-button {
+    background-color: var(--color-accent-red-hover); /* Un rojo un poco más oscuro para logout */
+    box-shadow: none; /* No tanto brillo para este */
+}
+
+.logout-button:hover {
+    background-color: var(--color-accent-red); /* Vuelve al rojo vibrante al pasar el mouse */
+    box-shadow: 0 0 10px rgba(229, 57, 53, 0.5); /* Agrega un poco de brillo al hover */
+}
+
+
+@media (max-width: 992px) {
+  .header {
+      flex-wrap: wrap; /* Permite que los elementos se envuelvan en varias líneas */
+      justify-content: center; /* Centra los elementos cuando se envuelven */
+      gap: 1rem; /* Espacio entre los elementos */
+      padding: 1rem; /* Reducir padding en pantallas más pequeñas */
+  }
+
+  .header-logo {
+    margin-left: 8rem;
+      flex-basis: 100%; /* El logo ocupa todo el ancho */
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem; /* Ajustar tamaño de fuente */
+  }
+
+  .header-nav ul {
+    margin-left: 4.4rem;
+      flex-basis: 100%; /* La navegación ocupa todo el ancho */
+      justify-content: center;
+      margin-bottom: 1rem;
+      gap: 1rem; /* Reducir el espacio entre los ítems de navegación */
+  }
+
+  .header-nav a {
+      font-size: 1rem; /* Ajustar tamaño de fuente de los links */
+  }
+
+  .header-search {
+      flex-basis: 90%; /* La barra de búsqueda ocupa un gran porcentaje del ancho */
+      margin: 0 auto 1rem auto; /* Centrar y añadir margen inferior */
+      max-width: 500px; /* Limitar el ancho máximo */
+  }
+
+  .header-user-actions {
+      flex-basis: 100%; /* Las acciones de usuario ocupan todo el ancho */
+      justify-content: center;
+      gap: 1rem;
+  }
+
+  .notification-bell, .header-button {
+      padding: 0.6rem 1.2rem; /* Reducir padding de botones */
+      font-size: 0.95rem; /* Ajustar tamaño de fuente */
+  }
+
+  .notification-bell {
+      width: 35px; /* Ajustar tamaño de campana */
+      height: 35px;
+  }
+}
+
+/* Teléfonos móviles (hasta 768px) */
+@media (max-width: 768px) {
+  .header {
+    padding: 0.8rem;
+    gap: 0.8rem;
+}
+
+.header-logo {
+    font-size: 1.5rem;
+}
+
+.header-nav ul {
+    /* Eliminamos flex-direction: column; y align-items: center; */
+    /* Dejamos que el flex del .header (display: flex; flex-wrap: wrap;) los maneje */
+    gap: 0.8rem; /* Puedes ajustar este gap para que quepan mejor */
+    justify-content: center; /* Asegura que estén centrados si hay espacio */
+    flex-basis: 100%; /* Siguen ocupando su propia línea */
+}
+
+.header-nav a {
+    font-size: 0.95rem; /* Ligeramente más pequeños para caber */
+}
+
+.header-search {
+    flex-basis: 100%;
+    margin-bottom: 0.8rem;
+}
+
+.search-input, .search-button {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+}
+
+.header-user-actions {
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+
+  .header-search {
+      flex-basis: 100%; /* Ocupa todo el ancho */
+      margin-bottom: 0.8rem;
+  }
+
+  .search-input, .search-button {
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+  }
+
+  .header-user-actions {
+      flex-wrap: wrap; /* Asegurarse de que los botones de acción también se envuelvan */
+      gap: 0.8rem;
+  }
+}
+
+/* Teléfonos móviles muy pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  .header {
+      padding: 0.5rem;
+  }
+
+  .header-logo {
+      font-size: 1.3rem;
+  }
+
+  .header-nav a {
+      font-size: 0.9rem;
+  }
+
+  .notification-bell {
+      width: 30px;
+      height: 30px;
+      font-size: 1rem;
+  }
+  .notification-count {
+      font-size: 0.6rem;
+      width: 16px;
+      height: 16px;
+  }
+  .header-button {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+  }
+}

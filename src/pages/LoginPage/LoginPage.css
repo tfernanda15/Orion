@@ -1,0 +1,141 @@
+/* Código de LoginPage.css */
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #282c34;
+    color: white;
+  }
+  
+  /* ... el resto del CSS para LoginPage ... */
+  .auth-container {
+      background-color: #1a1e24;
+      padding: 2.5rem;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+  }
+  
+  .auth-container h2 {
+      margin-bottom: 2rem;
+      color: #61dafb;
+      font-size: 2rem;
+  }
+  
+  .form-group {
+      margin-bottom: 1.5rem;
+      text-align: left;
+  }
+  
+  .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+  }
+  
+  .form-group input {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: #333;
+      color: white;
+      font-size: 1rem;
+  }
+  
+  .form-group input:focus {
+      outline: none;
+      border-color: #61dafb;
+      box-shadow: 0 0 0 2px rgba(97, 218, 251, 0.5);
+  }
+  
+  .auth-button {
+      width: 100%;
+      padding: 12px;
+      background-color: #61dafb;
+      color: #1a1e24;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 1rem;
+  }
+  
+  .auth-button:hover {
+      background-color: #4fa1c7;
+  }
+  
+  .toggle-auth {
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+  }
+  
+  .toggle-auth span {
+      color: #61dafb;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 0.5rem;
+  }
+  
+  .toggle-auth span:hover {
+      text-decoration: underline;
+  }
+
+  /* src/pages/ProfilePage/ProfilePage.css */
+
+/* Estilo base para el botón seguir */
+.follow-button {
+    background-color: #61dafb; /* Azul de Orion */
+    color: #282c34; /* Texto oscuro */
+    border: none;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px; /* Botón redondeado */
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+  }
+  
+  .follow-button:hover {
+    background-color: #4fa1c7;
+    transform: translateY(-2px);
+  }
+  
+  /* Nuevo estilo para el botón "Siguiendo" (cuando ya lo sigues) */
+  .unfollow-button {
+    background-color: #e0e0e0; /* Gris claro */
+    color: #555; /* Texto gris oscuro */
+    border: 1px solid #ccc;
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 1rem;
+  }
+  
+  .unfollow-button:hover {
+    background-color: #d0d0d0;
+    transform: translateY(-2px);
+  }
+  
+  /* ... (resto de tu CSS existente para ProfilePage) ... */
+
+  .error-message {
+    color: #ff3860; /* Un rojo vibrante para los errores */
+    font-size: 0.9rem;
+    margin-top: -10px; /* Para que esté más cerca del campo */
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #ffe8ee; /* Fondo suave para el error */
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ffbbcc;
+  }

@@ -1,0 +1,180 @@
+/* src/pages/HomePage/HomePage.css */
+
+.home-page {
+    min-height: calc(100vh - var(--header-height) - var(--footer-height));
+    /* Eliminamos el background-color y usamos el background animado */
+    /* background-color: var(--color-background-dark); */
+    color: var(--color-text-light);
+    padding: 2rem 0;
+    position: relative; /* Necesario para posicionar el fondo animado */
+    overflow: hidden; /* Asegura que el degradado no se salga del body si es más grande */
+}
+
+/* Capa de fondo animada para la HomePage */
+.home-page::before {
+    content: '';
+    position: fixed; /* O fixed para que se mantenga en el viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-accent-gold) 70%,var(--color-background-dark), var(--color-background-dark) 100%);
+    background-size: 300% 300%; /* Tamaño para que el degradado sea más grande y se pueda animar */
+    animation: background-move 20s ease infinite alternate; /* Animación de movimiento */
+    z-index: -2; /* Detrás de todo el contenido */
+    opacity: 0.2; /* Sutil transparencia para que no sea abrumador */
+    filter: blur(50px); /* Un poco de desenfoque para un efecto más etéreo */
+}
+
+@keyframes background-move {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+
+.home-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    position: relative; /* Para que el contenido quede encima del ::before */
+    z-index: 1; /* Asegura que el contenido esté por encima del fondo animado */
+}
+  
+.home-content h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-light);
+    font-size: 2.5rem;
+    text-shadow: 0 0 5px rgba(229, 57, 53, 0.6),
+                 0 0 10px var(--color-accent-gold),
+                 0 0 20px var(--color-accent-gold);
+}
+  
+.home-content p {
+    text-align: center;
+    font-size: 1.15rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text-light);
+    text-shadow: 0 0 2px var(--color-accent-gold);
+}
+
+/* Sección de Llamada a la Acción (CTA) */
+.cta-section {
+    background-color: var(--color-card-dark);
+    border: 1px solid var(--color-border-dark);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.cta-section h3 {
+    color: var(--color-accent-blue);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 6px rgba(3, 169, 244, 0.4);
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-accent-purple);
+    color: var(--color-text-light);
+    padding: 1rem 2.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 0 12px rgba(142, 36, 170, 0.6);
+}
+
+.cta-button:hover {
+    background-color: var(--color-accent-red);
+    transform: translateY(-2px);
+    box-shadow: 0 0 18px rgba(229, 57, 53, 0.8);
+}
+
+/* Sección de Feed */
+.feed-section {
+    background: radial-gradient(var(--color-accent-red) 70%, var(--color-accent-gold));
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    border: 1px solid var(--color-border-dark);
+}
+  
+.feed-section h3 {
+    color: var( --color-text-light);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-accent-gold);
+    padding-bottom: 0.8rem;
+    text-shadow: 0 0 10px rgba(229, 57, 53, 0.6),
+    0 0 15px var(--color-accent-gold),
+    0 0 30px var(--color-accent-gold);
+}
+  
+.posts-list {
+        /* CAMBIO CLAVE: Usa flexbox para un layout vertical, no grid */
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    gap: 2rem; /* Espacio entre las tarjetas */
+    max-width: 900px; /* Limita el ancho de la lista para que no se extienda demasiado */
+    margin: 0 auto; /* Centra la lista de publicaciones */
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .home-content {
+    padding: 0 1rem;
+  }
+
+  .home-content h2 {
+    font-size: 2rem;
+  }
+
+  .home-content p {
+    font-size: 1rem;
+  }
+
+  .cta-section {
+    padding: 1.5rem;
+  }
+
+  .cta-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .feed-section {
+    padding: 1.5rem;
+  }
+
+  .feed-section h3 {
+    font-size: 1.5rem;
+  }
+
+  .posts-list {
+    max-width: 100%; /* Ocupa todo el ancho disponible en pantallas pequeñas */
+  }
+}
+
+/* Asegura que el HTML del body no tenga un padding que arruine el fixed */
+body {
+    overflow-x: hidden; /* Ya estaba, pero lo reitero */
+}

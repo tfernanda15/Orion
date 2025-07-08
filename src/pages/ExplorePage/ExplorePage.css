@@ -1,0 +1,44 @@
+.explore-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--color-background-dark) 0%, var(--color-accent-gold) 70%,var(--color-background-dark), var(--color-background-dark) 100%);
+    background-size: 300% 300%; /* Tamaño para que el degradado sea más grande y se pueda animar */
+    animation: background-move 20s ease infinite alternate; /* Animación de movimiento */
+    min-height: calc(100vh - 120px); /* Ajusta para Header y Footer */
+  }
+
+  @keyframes background-move {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+  
+  .explore-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .explore-content h2 {
+    text-align: center;
+    color: var(--color-text-light);
+    text-shadow: 
+    0 0 5px var(--color-accent-red),0 0 10px var(--color-accent-gold);
+
+    font-size: 2.5rem;
+  }
+  
+  .explore-intro {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+    text-shadow: 
+    0 0 5px var(--color-accent-red),0 0 10px var(--color-accent-gold);
+    margin-bottom: 2rem;
+  }
+  
+  .explore-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Columnas responsivas */
+    gap: 2rem; /* Espacio entre las tarjetas */
+  }
+  
+  /* Puedes añadir más estilos aquí si PostCard no cubre todos los casos de ExplorePage */

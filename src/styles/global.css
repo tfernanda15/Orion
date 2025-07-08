@@ -1,0 +1,175 @@
+/* Variables de Colores para la estética "Neón" */
+:root {
+  /* Colores base para la estética oscura y moderna */
+  --color-background-dark: #121212; /* Negro muy oscuro, casi espacial */
+  --color-card-dark: #1a1a1a; /* Un tono un poco más claro para las tarjetas */
+  --color-border-dark: #2c2c2c; /* Borde sutil */
+  --color-text-light: #FAFAFA; /* Texto principal claro */
+  --color-text-muted: #B0B0B0; /* Texto secundario/desactivado */
+
+  /* Colores de Acento "Neón" vibrantes */
+  --color-accent-red: #f0c38e; /* Dorado vibrante */
+  --color-accent-gold: #f3a44a;
+  --color-accent-red-hover: #C62828; /* Rojo más oscuro para hover */
+  --color-accent-purple: #8E24AA; /* Morado intenso */
+  --color-accent-blue: #61dafb; /* Azul brillante, casi cian */
+  --color-accent-green: #00E676; /* Verde neón para éxito */
+
+  /* Colores para el sistema de Toast */
+  --toast-success-bg: var(--color-accent-green);
+  --toast-success-text: var(--color-background-dark); /* Texto oscuro para toast brillante */
+  --toast-error-bg: var(--color-accent-red);
+  --toast-error-text: var(--color-text-light);
+  --toast-info-bg: var(--color-accent-blue);
+  --toast-info-text: var(--color-text-light);
+
+  /* Degradados para efectos "neón" (opcional, para fondos o elementos específicos) */
+  --gradient-red-purple: linear-gradient(90deg, var(--color-accent-red) 0%, var(--color-accent-purple) 100%);
+  --gradient-blue-purple: linear-gradient(90deg, var(--color-accent-blue) 0%, var(--color-accent-purple) 100%);
+}
+
+/* Importar fuentes de Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+
+
+/* Estilos Generales y Reseteo */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* Fuente principal para el cuerpo */
+  background-color: var(--color-background-dark); /* Fondo muy oscuro general */
+  color: var(--color-text-light); /* Color de texto por defecto, claro */
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; /* Evitar scroll horizontal */
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-content-wrapper {
+  flex: 1; /* Permite que el contenido ocupe el espacio disponible entre header y footer */
+  padding: 1.5rem; /* Espaciado general en los lados */
+  max-width: 1200px; /* Ancho máximo para el contenido */
+  margin: 0 auto; /* Centrar el contenido */
+  width: 100%;
+}
+
+/* Estilos de enlaces globales */
+a {
+  color: var(--color-accent-red); /* Enlaces en rojo principal */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-accent-purple); /* Cambiar a morado al pasar el mouse */
+}
+
+/* Estilos para botones genéricos */
+button {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Inter', sans-serif; /* Asegura que los botones usen Inter */
+}
+
+/* Estilos básicos para formularios */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid var(--color-border-dark); /* Borde más oscuro */
+  background-color: var(--color-card-dark); /* Fondo oscuro para inputs */
+  color: var(--color-text-light); /* Texto claro en inputs */
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted); /* Color sutil para el placeholder */
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: var(--color-accent-red); /* Borde de enfoque rojo */
+  box-shadow: 0 0 0 3px var(--color-accent-gold); /* Sombra de enfoque roja */
+}
+
+
+/* Estilos para mensajes de error */
+.error-message {
+  color: var(--color-accent-red);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Estilos de tarjetas y contenedores de contenido */
+.content-card {
+    background-color: var(--color-card-dark); /* Fondo para las tarjetas de contenido */
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--color-border-dark); /* Borde sutil */
+}
+
+.content-card h2, .content-card h3, .content-card p {
+    color: var(--color-text-light); /* Asegura que el texto sea claro sobre el fondo oscuro de la tarjeta */
+}
+
+/* Ajustes para el spinner */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.2); /* Base más sutil */
+    border-top: 4px solid var(--color-accent-red); /* Parte animada en rojo */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+    display: block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Scrollbar estilo moderno (para navegadores WebKit como Chrome/Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-dark);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent-purple); /* Morado vibrante para el thumb */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-red); /* Rojo al pasar el mouse */
+}

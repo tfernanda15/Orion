@@ -1,0 +1,175 @@
+/* src/components/PostCard/PostCard.css */
+
+
+.post-card {
+    /* CAMBIO CLAVE: Fondo claro y translúcido para cada tarjeta */
+    background-color: rgba(255, 255, 255, 0.148); /* Blanco muy translúcido */
+    backdrop-filter: blur(10px); /* Efecto de cristal esmerilado para la translucidez */
+    -webkit-backdrop-filter: blur(10px); /* Para compatibilidad con Safari */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borde blanco translúcido */
+    border-radius: 12px;
+    padding: 1.8rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease; /* Añadimos background-color a la transición */
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+/* Efecto de borde neón que brilla al pasar el mouse */
+.post-card::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    background: linear-gradient(45deg, var(--color-card-dark), #2a1c0c);
+    background-size: 400% 400%;
+    z-index: -1;
+    border-radius: 15px;
+    /* CAMBIO CLAVE: Aumentar la opacidad del ::before para que el brillo sea visible sobre fondo claro */
+    opacity: 0.7; /* Opacidad inicial para que el brillo sea visible */
+    transition: opacity 0.5s ease, background-position 1s ease;
+    filter: blur(10px);
+}
+
+.post-card:hover::before {
+    opacity: 1; /* Opacidad completa al pasar el mouse */
+    background-position: 100% 100%;
+    animation: neon-border-pulse 10s infinite alternate;
+}
+
+@keyframes neon-border-pulse {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.post-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+    /* Puedes cambiar el color de fondo en hover si quieres, por ejemplo, un poco más oscuro o un tono diferente */
+    background-color: rgba(255, 255, 255, 0.12); /* Ligeramente más opaco al pasar el mouse */
+}
+
+/* ... (mantén el resto de los estilos para h4, p, botones, etc. sin cambios) ... */
+
+/* ... (tus estilos existentes de PostCard) ... */
+.post-card-image {
+    max-width: 100%; /* Asegura que la imagen no se desborde */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block; /* Para centrar si es necesario, o para ocupar su propia línea */
+}
+
+/* src/components/PostCard/PostCard.css */
+
+/* ... (tus estilos existentes) ... */
+
+.post-card-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    gap: 10px; /* Espacio entre botones */
+    margin-top: 1rem;
+}
+
+
+
+/* ... (resto de tus estilos) ... */
+
+/* src/components/PostCard/PostCard.css */
+
+/* ... (mantén los estilos generales del .post-card y sus pseudo-elementos, h4, p, etc.) ... */
+
+/* Estilos para el reproductor de audio */
+.post-card-audio {
+    width: 100%;
+    margin-top: 1rem;
+    filter: sepia(20%) saturate(150%) brightness(120%) contrast(100%);
+    border-radius: 8px;
+}
+
+/* Estilos para imágenes */
+.post-card-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px; /* Usa el mismo redondeo que el reproductor de audio */
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+/* Contenedor de Acciones - CAMBIO CLAVE para alinear los botones */
+.post-card-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    align-items: center; /* Centra verticalmente los elementos */
+    gap: 1rem; /* Espacio entre el botón de like y el de comentar */
+    margin-top: 1.5rem; /* Más espacio en la parte superior */
+    padding-top: 1rem; /* Padding superior para el contenido del div */
+    border-top: 1px solid var(--color-border-dark); /* Un separador sutil */
+}
+
+/* Botón de Like - Combinando corazón y contador en un solo botón */
+.like-button {
+    background-color: var(--color-accent-purple); /* Fondo verde neón */
+    color: var(--color-text-light); /* Texto oscuro para el corazón y número */
+    border: none;
+    padding: .3rem 1rem; /* Más padding para que el contenido quepa bien */
+    border-radius: 10%; /* Redondeado */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    display: flex; /* Permite alinear el corazón y el número */
+    align-items: center;
+    gap: 0.4rem; /* Espacio entre el corazón y el número */
+    font-size: 1rem; /* Tamaño de fuente para el número */
+    box-shadow: 0 0 8px var(--color-accent-gold); /* Brillo neón verde */
+}
+
+.like-button:hover {
+    background-color: var(--color-accent-red); /* Rojo neón al pasar el mouse */
+    box-shadow: 0 0 12px rgba(229, 57, 53, 0.7); /* Brillo rojo */
+    transform: translateY(-2px);
+}
+
+/* Estilo cuando el usuario ya le dio like (corazón lleno y fondo diferente) */
+.like-button.liked {
+    background-color: var(--color-accent-red-hover); /* Rojo neón cuando ya se dio like */
+    color: var(--color-text-light); /* Texto claro */
+    box-shadow: 0 0 10px var(--color-accent-gold); /* Brillo más fuerte */
+}
+
+.like-button.liked:hover {
+    background-color: var(--color-accent-purple); /* Morado neón al pasar el mouse si ya se dio like */
+    box-shadow: 0 0 15px rgba(142, 36, 170, 0.8); /* Brillo morado */
+}
+
+
+/* Botón de Comentar */
+.post-card-comment-button {
+    background-color: #0008ffcc; /* Azul neón para el botón de comentar */
+    color: var(--color-text-light);
+    border: none;
+    font-size: .9rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 0 8px var(--color-accent-gold); /* Sombra de brillo azul */
+}
+
+.post-card-comment-button:hover {
+    background-color: var(--color-accent-purple); /* Morado al pasar el mouse */
+    box-shadow: 0 0 12px var(--color-accent-gold); /* Brillo morado */
+    transform: translateY(-2px);
+}
+
+/* ... (resto de tus estilos y media queries para PostCard) ... */
